@@ -4,9 +4,9 @@
     <nav>
       <ul class="nav navbar-nav pull-right">
         <% if admin_signed_in? %>
-          <li><%= link_to "Home",   root_path %></li>
+          <li><%= link_to "Home",   admins_root_path %></li>
           <li><%= link_to "Users",   root_path %></li>
-          <li><%= link_to "Subjects",   root_path %></li>
+          <li><%= link_to "Subjects",   admins_subjects_path %></li>
           <li><%= link_to "Questions",   root_path %></li>
           <li><%= link_to "Examinations",   root_path %></li>
           <li><%= link_to "Help", help_path %></li>
