@@ -19,7 +19,7 @@
 }
 
 #body{
-  margin-top:2.5em;
+  margin-top:60px;
   clear:both;
 }
 
@@ -52,4 +52,25 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 15px;
+}
+
+.alert-notice {
+  @extend .alert-success;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.form-area {
+  margin-top: 15px;
+  h2 {
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+.dropdown {
+  @extend .dropdown;
 }
