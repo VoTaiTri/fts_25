@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   get "news" => "static_pages#news"
 
   devise_for :admins
+  namespace :admins do
+    root "users#index"
+    resources :subjects
+  end
   
   devise_for :users
   devise_scope :user do
