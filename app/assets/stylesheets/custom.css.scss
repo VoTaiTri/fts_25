@@ -74,3 +74,14 @@ footer ul li {
 .dropdown {
   @extend .dropdown;
 }
+
+#error_explanation {
+  h2 {
+    color: red;
+    font-size: 20px;
+  }
+  ul li {
+    color: red;
+    font-size: 14px; 
+  }
+}
