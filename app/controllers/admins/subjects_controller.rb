@@ -3,7 +3,10 @@ class Admins::SubjectsController < ApplicationController
   before_action :set_subject, except: [:index, :new, :create]
   
   def index
-    # implement later  
+    @subjects = Subject.paginate page: params[:page], per_page: 15
+  end
+  
+  def show
   end
   
   def new
@@ -28,6 +31,11 @@ class Admins::SubjectsController < ApplicationController
     else
       render "edit"
     end
+  end
+  
+  def destroy
+    @subject.destroy
+    redirect_to admins_subjects_path, success: t(:delete_success, model: "subject")
   end
   
   private
