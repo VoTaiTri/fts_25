@@ -25,3 +25,9 @@ en:
   updated_success: "Successfully updated %{model}!"
   delete_success: "Successfully delete subject!"
   label: "%{label}"
+  date:
+    formats:
+      default: "%d/%m/%y"
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M:%S"

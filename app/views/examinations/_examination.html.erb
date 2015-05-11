@@ -1,0 +1,21 @@
+<div class="row">
+  <hr>
+  <div class="col-sm-6">
+    <b><%= l examination.created_at, format: :default %></b>
+  </div>
+  <div class="col-sm-6">
+    <b>Testing</b>
+  </div>
+</div>
+<div class="row answer-sheet">
+  <hr>
+  <div class="col-sm-6">
+    <%= examination.subject.name %>
+  </div>
+  <div class="col-sm-3">
+    <%= examination.answer_sheet.submited_duration %>
+  </div>
+  <div class="col-sm-3">
+    <%= examination.answer_sheet.status %>
+  </div><br><hr>
+</div>
