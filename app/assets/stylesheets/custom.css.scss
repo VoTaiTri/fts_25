@@ -111,3 +111,23 @@ footer ul li {
 .answer-sheet {
   padding-left: 2em;
 }
+
+pre {
+  font-weight: bold;
+}
+
+.rdo_option {
+  padding-left:2em;
+  font-weight: normal;
+}
+
+p {
+  white-space: pre;
+}
+
+#time-left{
+  float: right;
+  position: fixed;
+  top: 75px;
+  right: 260px;
+}

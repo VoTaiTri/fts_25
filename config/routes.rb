@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: :show
-  resources :examinations, only: [:index, :create]
+  resources :examinations
+  get "/examinations/:id/:status", to: "examinations#update", as: :start_examination
 end
