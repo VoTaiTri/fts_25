@@ -15,3 +15,19 @@
 //= require turbolinks
 //= require_tree .
 //=require bootstrap
+
+function add_fields(link, assoc, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + assoc, "g")
+  $(link).parent().before(content.replace(regexp, new_id));
+}
+
+function ready(){
+  $(".checkbox").on("change", function(){
+    $(".checkbox").not(this).prop("checked", false);
+  });
+}
+
+$(document).ready(ready);
+$(document).on("page:load", ready);
+$(document).on("page:update", ready);

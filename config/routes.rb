@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :admins do
     root "users#index"
     resources :subjects
+    resources :questions
   end
   
   devise_for :users
