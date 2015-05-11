@@ -1,0 +1,17 @@
+<div class="col-sm-8 col-sm-offset-2">
+  <h2>All Subjects</h2>
+  <%= will_paginate @subjects, renderer: BootstrapPagination::Rails %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Duration</th>
+        <th>Option</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @subjects %>
+    </tbody>
+  </table>
+</div>
