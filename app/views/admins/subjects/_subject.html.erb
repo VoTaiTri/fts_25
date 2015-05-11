@@ -1,0 +1,9 @@
+<tr>
+  <td><%= subject.id %></td>
+  <td><%= link_to subject.name, admins_subject_path(subject) %></td>
+  <td><%= "#{subject.duration} min" %></td>
+  <td>
+    <%= link_to "Edit", edit_admins_subject_path(subject) %> | 
+    <%= link_to "Delete", admins_subject_path(subject), data: {method: :delete, confirm: "Are you sure?"} %>
+  </td>
+</tr>
