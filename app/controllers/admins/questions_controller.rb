@@ -2,6 +2,13 @@ class Admins::QuestionsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_question, except: [:index, :new, :create]
   
+  def index
+    @questions = Question.paginate page: params[:page], per_page: Settings.page_size
+  end
+  
+  def show
+  end
+  
   def new
     @question = Question.new
   end

@@ -1,0 +1,23 @@
+<div class="form-area col-sm-4 col-sm-offset-4">
+  <h2>Subject's Details</h2>
+  <label>Description: </label><pre><%= @question.description %></pre><br /><hr />
+  <% if @question.options.any? %>
+    <h2>Options</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Correct</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @question.options.each do |option| %>
+          <tr>
+            <td><%= option.description %></td>
+            <td><%= option.correct ? t(:label, label: "Yes") : t(:label, label: "No") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

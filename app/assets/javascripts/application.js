@@ -19,7 +19,7 @@
 function add_fields(link, assoc, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + assoc, "g")
-  $(link).prev().after(content.replace(regexp, new_id));
+  $(link).before(content.replace(regexp, new_id));
 }
 
 function remove_fields(link) {
