@@ -15,6 +15,22 @@ class Admins::QuestionsController < ApplicationController
     end
   end
   
+  def edit
+  end
+  
+  def update
+    if @question.update_attributes question_params
+      redirect_to  admins_questions_path, success: t(:updated_success, model: "question")
+    else
+      render "edit"
+    end
+  end
+  
+  def destroy
+    @question.destroy
+    redirect_to admins_questions_path, success: t(:delete_success, model: "question")
+  end
+  
   private
   def set_question
     @question = Question.find params[:id]
@@ -22,6 +38,7 @@ class Admins::QuestionsController < ApplicationController
   
   def question_params
     params.require(:question)
-          .permit :subject_id, :description, options_attributes: [:description, :correct]
+          .permit :subject_id, :description,
+                  options_attributes: [:id, :description, :correct, :_destroy]
   end
 end
