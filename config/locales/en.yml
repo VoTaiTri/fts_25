@@ -24,3 +24,4 @@ en:
   created_success: "Successfully created %{model}"
   updated_success: "Successfully updated %{model}!"
   delete_success: "Successfully delete subject!"
+  label: "%{label}"
