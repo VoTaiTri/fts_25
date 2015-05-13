@@ -1,0 +1,16 @@
+<% if user_signed_in? %>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= form_for current_user.examinations.new, html: {class: "form-inline"} do |f| %>
+        <div class="form-group">
+          <%= f.label t(:label, label: "Please Select subject: ") %>
+          <%= f.collection_select :subject_id, Subject.all, :id, :name, {}, {class: "form-control"} %>
+        </div>
+        <%= f.submit "Start", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+  <%= will_paginate @examinations, renderer: BootstrapPagination::Rails %>
+  <%= render @examinations %>
+  <%= will_paginate @examinations, renderer: BootstrapPagination::Rails %>
+<% end %>

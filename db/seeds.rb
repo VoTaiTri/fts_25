@@ -31,15 +31,15 @@ subjects.each do |subject|
   end  
 end
 
-users = User.all
+users = User.limit 20
 users.each do |user|
-  exam = user.examinations.create!
-  
-  num = Random.rand(1...5)
-  num.times do |n|
-    answer_sheet = exam.answer_sheets.create! status: "start", subject_id: n+1
-    answer_sheet.subject.questions.each do |question|
-      answer_sheet.answers.create question_id: question.id, option_id: Random.rand(1...4)
-    end    
+  subjects.limit(3).each do |subject|
+    exam = user.examinations.create! subject_id: subject.id
+    answer_sheet = exam.create_answer_sheet
+    subject.questions.each do |question|
+      answer_sheet.answers.create question_id: question.id  
+    end
   end
 end
+
+
