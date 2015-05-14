@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require_tree .
 //=require bootstrap
+//= require jquery.countdown
+//= require jquery.countdown-es
 
 function add_fields(link, assoc, content) {
   var new_id = new Date().getTime();
@@ -30,6 +32,17 @@ function remove_fields(link) {
 function ready(){
   $(".checkbox").on("change", function(){
     $(".checkbox").not(this).prop("checked", false);
+  });
+
+  $("#countdown").countdown({
+    until: parseInt($("#duration").val()),
+    format: "HMS",
+    labels: ["Years", "Months", "weeks", "Days", "Hours", "Minutes", "Seconds"],
+    onExpiry: function(){
+      alert("Your exam is time out we are going to submit your test automaticaly");
+      $("#submit-answer_sheets").trigger("click");
+      $("#submit-answer_sheets").hidden();
+    }
   });
 }
 

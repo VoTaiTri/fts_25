@@ -4,7 +4,7 @@ class ExaminationsController < ApplicationController
   def index
     @examinations = current_user.examinations
                     .order("created_at DESC")
-                    .paginate page: params[:page], per_page: 5
+                    .paginate page: params[:page], per_page: Settings.page_exam_size
   end
   
   def create
@@ -19,9 +19,14 @@ class ExaminationsController < ApplicationController
   def update    
     @examination = Examination.find params[:id]
     if params[:status] == "Start"
-      @examination.update_attribute :status, "View"
+      time_out = @examination.subject.duration.minute.from_now
+      @examination.update_attributes status: "View", end_testing_at: time_out
     else
       if @examination.update_attributes examination_params
+        end_at = @examination.end_testing_at.to_time
+        start_testing_at = end_at - @examination.subject.duration.minutes
+        last_submited_duration = Time.now.to_time - start_testing_at
+        @examination.update_attribute :submited_duration, last_submited_duration
         flash[:success] = t(:updated_success, model: "AnswerSheet")
       else
         flash[:danger] = t(:updated_failed, model: "AnswerSheet")

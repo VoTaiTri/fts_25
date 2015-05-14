@@ -128,6 +128,12 @@ p {
 #time-left{
   float: right;
   position: fixed;
-  top: 75px;
-  right: 260px;
+  top: 60px;
+  right: 80px;
+}
+
+.time-left {
+  display: block;
+  width: 250px;
+  overflow: hidden;
 }

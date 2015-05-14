@@ -13,7 +13,7 @@
     <%= examination.subject.name %>
   </div>
   <div class="col-sm-3">
-    <%= examination.submited_duration %>
+    <%= (Time.mktime(0) + examination.submited_duration).strftime "%H:%M:%S" %>
   </div>
   <div class="col-sm-3">    
     <% if examination.status == "Start" %>

@@ -42,8 +42,7 @@ ActiveRecord::Schema.define(version: 20150514022311) do
     t.datetime "updated_at",                                      null: false
     t.integer  "subject_id",        limit: 4
     t.integer  "submited_duration", limit: 4,   default: 0
-    t.date     "end_testing_at"
-    t.boolean  "correct",           limit: 1,   default: false
+    t.datetime "end_testing_at"
   end
 
   create_table "options", force: :cascade do |t|
