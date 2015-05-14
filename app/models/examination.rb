@@ -7,6 +7,8 @@ class Examination < ActiveRecord::Base
   
   accepts_nested_attributes_for :answer_sheets, allow_destroy: true
   
+  scope :finishes, -> {where status: "Finished"}
+  
   def total_scores
     answer_sheets.corrects.count
   end

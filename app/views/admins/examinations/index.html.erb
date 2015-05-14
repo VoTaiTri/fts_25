@@ -1,0 +1,7 @@
+<div class="form-area col-sm-6 col-sm-offset-3">
+  <h2>All Examination</h2>
+  <%= will_paginate @examinations, renderer: BootstrapPagination::Rails %>
+  <ul class="list-group">
+    <%= render @examinations %>
+  </ul>
+</div>
