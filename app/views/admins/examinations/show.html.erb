@@ -1,0 +1,21 @@
+<div class="form-area col-sm-6 col-sm-offset-3">
+  <h2><%= "#{@user.username}'s examination result" %></h2>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <span class="badge"><%= @examination.subject.name %></span>
+      Subject
+    </li>
+    <li class="list-group-item">
+      <span class="badge"><%= @examination.total_questions %></span>
+      Total Questions
+    </li>
+    <li class="list-group-item">
+      <span class="badge"><%= "#{@examination.total_scores}/#{@examination.total_questions}" %></span>
+      Total Score
+    </li>
+    <li class="list-group-item">
+      <span class="badge"><%= @examination.status %></span>
+      Status
+    </li>
+  </ul>
+</div>

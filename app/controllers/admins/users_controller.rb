@@ -8,4 +8,9 @@ class Admins::UsersController < ApplicationController
   def show
     @user = User.find params[:id]
   end
+  
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to admins_users_path, success: t(:delete_success, model: "user")
+  end
 end
