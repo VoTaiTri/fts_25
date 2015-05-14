@@ -1,0 +1,36 @@
+<div class="form-area col-sm-6 col-sm-offset-3">
+  <h2>Examination correction</h2>
+  <div style="overflow: hidden;">
+    <div class="pull-left">
+      <label>Username: </label> 
+      <span><%= @examination.user.username %></span>
+    </div>
+    <div class="pull-right">
+      <label>Examination Date: </label> 
+      <span><%= @examination.created_at.strftime("%d %b, %Y") %></span>
+    </div>
+  </div><hr />
+  <div>
+    <%= form_for [:admins, @examination] do |f| %>
+      <ol>
+        <%= f.fields_for :answer_sheets do |builder| %>
+          <% unless  builder.object.question.options.any? %>
+            <li>
+              <p><%= builder.object.question.description %></p>
+              <div class="form-group">
+                <%= builder.text_field :answer_content, class: "form-control" %>
+                <div class="checkbox">
+                  <%= builder.label :correct do %>
+                    <%= builder.check_box :correct %>
+                    Correct
+                  <% end %>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ol>
+      <%= f.submit t(:label, label: "Submit"), class: "btn btn-primary pull-right" %>
+    <% end %>
+  </div>
+</div>
