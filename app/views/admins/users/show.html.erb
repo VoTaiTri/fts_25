@@ -13,7 +13,7 @@
       <% @user.examinations.each do |examination| %>
         <li class="list-group-item">
           <label class="pull-right"><%= l examination.created_at %></label>
-          <label><%= link_to examination.subject.name, "#" %></label>
+          <label><%= link_to examination.subject.name, [:admins, @user, examination] %></label>
         </li>
       <% end %>
     </ul>

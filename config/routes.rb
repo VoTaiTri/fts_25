@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     root "users#index"
     resources :subjects
     resources :questions
-    resources :users
+    resources :users, only: [:index, :show, :destroy] do
+      resources :examinations, only: :show
+    end
   end
   
   devise_for :users
