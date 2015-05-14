@@ -1,0 +1,26 @@
+<div class="form-area col-sm-10 col-sm-offset-1">
+  <div>
+    <span><%= l @examination.created_at %></span>
+  </div>
+  <div id="time-left">
+    <p>Time left: <%= l @examination.end_testing_at unless @examination.end_testing_at.nil?%></p>
+  </div>
+  <center><h2><b><%= @examination.subject.name %></b></h2></center>
+  <%= form_for @examination do |f| %>  
+  <ol>
+    <%= f.fields_for :answer_sheets do |builder| %>      
+      <li>
+        <p><%= builder.object.question.description %></p>
+        <% if  builder.object.question.options.any? %>
+          <%= builder.collection_radio_buttons :option_id, builder.object.question.options, :id, :description do |rdo| %>
+            <%= rdo.label(class: "radio inline rdo_option") {rdo.radio_button + rdo.text} %>
+          <% end %>
+        <% else %>          
+          <%= builder.text_field :answer_content, class: "form-control"%>
+        <% end %>
+      </li>
+    <% end %>
+  </ol>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+</div>

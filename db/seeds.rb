@@ -28,16 +28,18 @@ subjects.each do |subject|
       option_des = Faker::Lorem.sentence 
       question.options.create! description: option_des,correct: 3 == n 
     end
+  end
+  3.times do
+    question = subject.questions.create! description: Faker::Lorem.sentence
   end  
 end
 
 users = User.limit 20
 users.each do |user|
   subjects.limit(3).each do |subject|
-    exam = user.examinations.create! subject_id: subject.id
-    answer_sheet = exam.create_answer_sheet
+    exam = user.examinations.create! subject_id: subject.id    
     subject.questions.each do |question|
-      answer_sheet.answers.create question_id: question.id  
+      exam.answer_sheets.create question_id: question.id  
     end
   end
 end

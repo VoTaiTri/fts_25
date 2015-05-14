@@ -24,6 +24,9 @@ en:
   created_success: "Successfully created %{model}"
   updated_success: "Successfully updated %{model}!"
   delete_success: "Successfully delete subject!"
+  created_failed: "Failed created %{model}"
+  updated_failed: "Failed updated %{model}!"  
+  delete_failed: "Failed delete subject!"
   label: "%{label}"
   date:
     formats:

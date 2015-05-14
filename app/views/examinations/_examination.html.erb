@@ -13,9 +13,13 @@
     <%= examination.subject.name %>
   </div>
   <div class="col-sm-3">
-    <%= examination.answer_sheet.submited_duration %>
+    <%= examination.submited_duration %>
   </div>
-  <div class="col-sm-3">
-    <%= examination.answer_sheet.status %>
+  <div class="col-sm-3">    
+    <% if examination.status == "Start" %>
+      <%= link_to "#{examination.status}", start_examination_path(examination, "#{examination.status}"), class: "btn btn-primary btn-xs" %>
+    <% else %>
+      <%= link_to "#{examination.status}", examination_path(examination), class: "btn btn-primary btn-xs" %>
+    <% end %>
   </div><br><hr>
 </div>
