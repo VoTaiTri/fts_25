@@ -30,6 +30,7 @@
           <% end %>
         <% end %>
       </ol>
+      <%= f.hidden_field :status, value: "Corrected" %>
       <%= f.submit t(:label, label: "Submit"), class: "btn btn-primary pull-right" %>
     <% end %>
   </div>

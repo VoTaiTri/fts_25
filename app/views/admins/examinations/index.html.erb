@@ -1,5 +1,16 @@
 <div class="form-area col-sm-6 col-sm-offset-3">
   <h2>All Examination</h2>
+  <div class="row">
+    <div class="col-sm-6 col-sm-push-6">
+      <%= form_tag admins_examinations_path, method: "get", class: "form-inline" do %>
+        <div class="form-group">
+          <%= label_tag :status %> 
+          <%= select_tag :status, options_for_select(["Start", "View", "Finished", "Corrected"].map {|element| [element, element]}, selected: params[:status]), {class: "form-control"} %>
+        </div>
+        <%= submit_tag t(:label, label: "Search"), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div><hr />
   <%= will_paginate @examinations, renderer: BootstrapPagination::Rails %>
   <ul class="list-group">
     <%= render @examinations %>

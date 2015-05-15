@@ -3,7 +3,11 @@ class Admins::ExaminationsController < ApplicationController
   before_action :set_examination, only: [:edit, :update]
   
   def index
-    @examinations = Examination.finishes
+    if params[:status]
+      @examinations = Examination.have_status params[:status]
+    else
+      @examinations = Examination.all
+    end
     @examinations = @examinations.paginate page: params[:page],
                                            per_page: Settings.page_size
   end
@@ -17,7 +21,9 @@ class Admins::ExaminationsController < ApplicationController
   end
   
   def update
+    @examination.start_correction = true
     if @examination.update_attributes examination_params
+      @examination.start_correction = false
       flash[:success] = t(:updated_success, model: "examination")
       redirect_to admins_examinations_path
     else
