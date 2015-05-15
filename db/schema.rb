@@ -11,18 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514022311) do
-
-  create_table "admins", force: :cascade do |t|
-    t.string   "username",           limit: 255, default: "", null: false
-    t.string   "email",              limit: 255, default: "", null: false
-    t.string   "encrypted_password", limit: 255, default: "", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
-  add_index "admins", ["username"], name: "index_admins_on_username", unique: true, using: :btree
+ActiveRecord::Schema.define(version: 20150515064608) do
 
   create_table "answer_sheets", force: :cascade do |t|
     t.integer  "subject_id",     limit: 4
@@ -43,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150514022311) do
     t.integer  "subject_id",        limit: 4
     t.integer  "submited_duration", limit: 4,   default: 0
     t.datetime "end_testing_at"
+    t.boolean  "correct",           limit: 1,   default: false
   end
 
   create_table "options", force: :cascade do |t|
@@ -71,10 +61,10 @@ ActiveRecord::Schema.define(version: 20150514022311) do
     t.string   "username",           limit: 255
     t.string   "email",              limit: 255
     t.string   "password_digest",    limit: 255
-    t.boolean  "admin",              limit: 1,   default: false
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.string   "encrypted_password", limit: 255
+    t.integer  "role",               limit: 4,   default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

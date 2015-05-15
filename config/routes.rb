@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   get "contact" => "static_pages#contact"
   get "news" => "static_pages#news"
 
-  devise_for :admins, only: :sessions
+  devise_for :admins,
+             class_name: "User",
+             controllers: {sessions: "admins/sessions"},
+             only: :sessions
   namespace :admins do
     root "users#index"
     resources :subjects
