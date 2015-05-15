@@ -6,4 +6,8 @@ class Question < ActiveRecord::Base
   accepts_nested_attributes_for :options, allow_destroy: true
   
   validates_presence_of :subject, :description
+  
+  def correct_option
+    options.find_by_correct true
+  end
 end

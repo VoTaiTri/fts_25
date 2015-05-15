@@ -1,5 +1,13 @@
 <div class="col-sm-8 col-sm-offset-2">
-  <h2>All Subjects</h2>
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>All Subjects</h2>
+    </div>
+    <div class="col-sm-6">
+      <br />
+      <%= link_to t(:label, label: "New Subject"), new_admins_subject_path, class: "btn btn-primary pull-right" %>
+    </div>
+  </div>
   <%= will_paginate @subjects, renderer: BootstrapPagination::Rails %>
   <table class="table">
     <thead>
