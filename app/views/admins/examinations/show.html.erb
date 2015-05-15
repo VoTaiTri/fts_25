@@ -2,20 +2,20 @@
   <h2><%= "#{@user.username}'s examination result" %></h2>
   <ul class="list-group">
     <li class="list-group-item">
-      <span class="badge"><%= @examination.subject.name %></span>
-      Subject
+      <span class="badge"><%= @examination.subject.name %></span>      
+      <%= t("admin.title.subject") %>
     </li>
     <li class="list-group-item">
       <span class="badge"><%= @examination.total_questions %></span>
-      Total Questions
+      <%= t("admin.title.total_question") %>
     </li>
     <li class="list-group-item">
       <span class="badge"><%= "#{@examination.total_scores}/#{@examination.total_questions}" %></span>
-      Total Score
+      <%= t("admin.title.total_score") %>
     </li>
     <li class="list-group-item">
       <span class="badge"><%= @examination.status %></span>
-      Status
+      <%= t("admin.title.status") %>
     </li>
   </ul>
 </div>

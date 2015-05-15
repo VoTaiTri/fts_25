@@ -6,7 +6,7 @@
           <%= f.label t(:label, label: "Please Select subject: ") %>
           <%= f.collection_select :subject_id, Subject.all, :id, :name, {}, {class: "form-control"} %>
         </div>
-        <%= f.submit "Start", class: "btn btn-primary" %>
+        <%= f.submit t("button.start"), class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

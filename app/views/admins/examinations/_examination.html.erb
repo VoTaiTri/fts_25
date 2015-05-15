@@ -1,4 +1,4 @@
 <li class="list-group-item">
   <%= link_to "#{examination.subject.name} | #{l examination.created_at}", [:admins, examination.user, examination] %>
-  <span class="pull-right"><%= link_to t(:label, label: "Go to correction page"), edit_admins_examination_path(examination) %></span>
+  <span class="pull-right"><%= link_to t("admin.link.go_to_correction_page"), edit_admins_examination_path(examination) %></span>
 </li>

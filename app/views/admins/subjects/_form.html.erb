@@ -9,6 +9,6 @@
     <%= f.text_field :duration, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.submit @subject.new_record? ? "Create" : "Update", class: "form-control btn btn-primary" %>
+    <%= f.submit @subject.new_record? ? t("button.create") : t("button.update"), class: "form-control btn btn-primary" %>
   </div>
 <% end %>

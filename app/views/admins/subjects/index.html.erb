@@ -1,11 +1,11 @@
 <div class="col-sm-8 col-sm-offset-2">
   <div class="row">
     <div class="col-sm-6">
-      <h2>All Subjects</h2>
+      <h2><%= t("admin.tilte.all_subject") %></h2>
     </div>
     <div class="col-sm-6">
       <br />
-      <%= link_to t(:label, label: "New Subject"), new_admins_subject_path, class: "btn btn-primary pull-right" %>
+      <%= link_to t("admin.link.new_subject"), new_admins_subject_path, class: "btn btn-primary pull-right" %>
     </div>
   </div>
   <%= will_paginate @subjects, renderer: BootstrapPagination::Rails %>
@@ -13,9 +13,9 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>Name</th>
-        <th>Duration</th>
-        <th>Option</th>
+        <th><%= t("admin.label.name") %></th>
+        <th><%= t("admin.label.duration") %></th>
+        <th><%= t("admin.label.option") %></th>
       </tr>
     </thead>
     <tbody>
