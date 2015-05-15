@@ -4,7 +4,7 @@ FactoryGirl.define do
     sequence(:email) {|i| "sreangrathanak#{i}@gmail.com"}
     password "1234567890"
     password_confirmation "1234567890"
-    role 0
+    role :normal
 
     factory :user_with_one_examination do
       after :create do |user|

@@ -1,4 +1,5 @@
 <% if user_signed_in? %>
+  <center><h1><%= t "title.examinations" %></h1></center><hr />
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <%= form_for current_user.examinations.new, html: {class: "form-inline"} do |f| %>

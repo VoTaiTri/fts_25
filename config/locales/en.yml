@@ -104,6 +104,7 @@ en:
     about: "About"
     contact: "Contact"
     home: "Home"
+    examinations: "All Examinations"
   date:
     formats:
       default: "%d/%m/%y"

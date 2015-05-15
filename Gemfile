@@ -12,8 +12,6 @@ gem "jquery-countdown-rails"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
 gem "rails", "4.2.0"
-# Use mysql as the database for Active Record
-gem "mysql2"
 # Use SCSS for stylesheets
 gem "bootstrap-sass",       "3.2.0.0"
 gem "sass-rails", "~> 5.0"
@@ -42,7 +40,14 @@ gem "sdoc", "~> 0.4.0", group: :doc
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development
 
+group :production do
+  gem "rails_12factor"
+  gem "pg"
+end
+
 group :development, :test do
+  # Use mysql as the database for Active Record
+  gem "mysql2"
   
   gem "faker"
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
@@ -57,8 +62,8 @@ end
 
 group :test do
   gem "factory_girl_rails"
-  gem "rspec-rails"
-  gem "database_cleaner"
   gem "cucumber-rails", require: false
+  gem "rspec-rails"
   gem "capybara-webkit"
+  gem "database_cleaner"
 end
