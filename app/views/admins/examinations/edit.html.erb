@@ -1,12 +1,12 @@
 <div class="form-area col-sm-6 col-sm-offset-3">
-  <h2>Examination correction</h2>
+  <h2><%= t("admin.title.examination_correction") %></h2>
   <div style="overflow: hidden;">
     <div class="pull-left">
-      <label>Username: </label> 
+      <label><%= t("admin.label.username") %>: </label> 
       <span><%= @examination.user.username %></span>
     </div>
     <div class="pull-right">
-      <label>Examination Date: </label> 
+      <label><%= t("admin.label.examination_date") %></label>
       <span><%= @examination.created_at.strftime("%d %b, %Y") %></span>
     </div>
   </div><hr />
@@ -22,7 +22,7 @@
                 <div class="checkbox">
                   <%= builder.label :correct do %>
                     <%= builder.check_box :correct %>
-                    Correct
+                    <%= t("admin.label.correct") %>
                   <% end %>
                 </div>
               </div>
@@ -30,8 +30,8 @@
           <% end %>
         <% end %>
       </ol>
-      <%= f.hidden_field :status, value: "Corrected" %>
-      <%= f.submit t(:label, label: "Submit"), class: "btn btn-primary pull-right" %>
+      <%= f.hidden_field :status, value: Settings.status.corrected %>
+      <%= f.submit t("button.submit"), class: "btn btn-primary pull-right" %>
     <% end %>
   </div>
 </div>

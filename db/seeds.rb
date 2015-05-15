@@ -2,7 +2,7 @@ User.create! username:  "Rathanak Jame",
              email: "sreangrathanak@gmail.com",
              password:              "1234567890",
              password_confirmation: "1234567890",
-             admin: true
+             role: :admin
 
 99.times do |n|
   name  = Faker::Name.name

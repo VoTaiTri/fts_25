@@ -1,2 +1,6 @@
 page_size: 15
 page_exam_size: 5
+status:
+  start: "Start"
+  view: "View"
+  corrected: "Corrected"

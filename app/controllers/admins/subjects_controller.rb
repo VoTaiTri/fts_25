@@ -3,7 +3,7 @@ class Admins::SubjectsController < ApplicationController
   before_action :set_subject, except: [:index, :new, :create]
   
   def index
-    @subjects = Subject.paginate page: params[:page], per_page: 15
+    @subjects = Subject.paginate page: params[:page], per_page: Settings.page_size
   end
   
   def show

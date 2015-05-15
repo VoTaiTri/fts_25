@@ -1,20 +1,20 @@
 <div class="form-area col-sm-4 col-sm-offset-4">
-  <h2>Subject's Details</h2>
-  <label>Description: </label><pre><%= @question.description %></pre><br /><hr />
+  <h2><%= t("admin.title.subject_detail") %></h2>
+  <label><%= t("admin.label.description") %> </label><pre><%= @question.description %></pre><br /><hr />
   <% if @question.options.any? %>
-    <h2>Options</h2>
+    <h2><%= t("admin.label.option") %></h2>
     <table class="table">
       <thead>
         <tr>
-          <th>Description</th>
-          <th>Correct</th>
+          <th><%= t("admin.label.description") %></th>
+          <th><%= t("admin.label.correct") %></th>
         </tr>
       </thead>
       <tbody>
         <% @question.options.each do |option| %>
           <tr>
             <td><%= option.description %></td>
-            <td><%= option.correct ? t(:label, label: "Yes") : t(:label, label: "No") %></td>
+            <td><%= option.correct ? t("admin.label.yes") : t("admin.label.no") %></td>
           </tr>
         <% end %>
       </tbody>

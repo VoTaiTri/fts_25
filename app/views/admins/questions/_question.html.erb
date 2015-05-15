@@ -1,7 +1,7 @@
 <li id="questions" class="list-group-item">
   <p><%= link_to question.description, [:admins, question] %></p>
   <div>
-    <%= link_to t(:label, label: "Edit"), edit_admins_question_path(question) %> | 
-    <%= link_to t(:label, label: "Delete"), admins_question_path(question), data: {method: :delete, confirm: t(:label, label: "Are you sure?")} %>
+    <%= link_to t("button.edit"), edit_admins_question_path(question) %> | 
+    <%= link_to t("button.delete"), admins_question_path(question), data: {method: :delete, confirm: t("admin.label.confirmation")} %>
   </div>
 </li>

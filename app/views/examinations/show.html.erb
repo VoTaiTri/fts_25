@@ -23,7 +23,7 @@
     <% end %>
   </ol>
   <% if @examination.end_testing_at.to_time - Time.now > 0 %>
-    <%= f.submit t(:label, label: "Submit"), id: "submit-answer_sheets", class: "btn btn-primary" %>
+    <%= f.submit t("button.submit"), id: "submit-answer_sheets", class: "btn btn-primary" %>
   <% end %>
   <% end %>
 </div>

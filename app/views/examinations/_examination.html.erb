@@ -4,7 +4,15 @@
     <b><%= l examination.created_at, format: :default %></b>
   </div>
   <div class="col-sm-6">
-    <b>Testing</b>
+    <b><%= t("user.label.status") %>
+      <% if examination.status == Settings.status.start %>
+        <%= t("user.label.start") %>
+      <% elsif examination.status == Settings.status.view %>
+        <%= t("user.label.testing") %>
+      <% else %>
+        <%= t("user.label.finish") %>        
+      <% end %>    
+    </b>
   </div>
 </div>
 <div class="row answer-sheet">
@@ -16,10 +24,10 @@
     <%= (Time.mktime(0) + examination.submited_duration).strftime "%H:%M:%S" %>
   </div>
   <div class="col-sm-3">    
-    <% if examination.status == "Start" %>
-      <%= link_to "#{examination.status}", start_examination_path(examination, "#{examination.status}"), class: "btn btn-primary btn-xs" %>
+    <% if examination.status == Settings.status.start %>
+      <%= link_to t("button.start"), start_examination_path(examination, "#{examination.status}"), class: "btn btn-primary btn-xs" %>
     <% else %>
-      <%= link_to "#{examination.status}", examination_path(examination), class: "btn btn-primary btn-xs" %>
+      <%= link_to t("button.view"), examination_path(examination), class: "btn btn-primary btn-xs" %>
     <% end %>
   </div><br><hr>
 </div>

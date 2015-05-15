@@ -1,14 +1,14 @@
 <div class="form-area col-sm-12">
   <div class="col-sm-4">
-    <center><h2>User's Profile</h2></center>
+    <center><h2><%= t("admin.title.user_profile") %></h2></center>
     <div id="user">
       <%= gravatar_for @user %>
-      <div><label>User Name: </label><%= @user.username %><br>
-      <label>Email: </label><%= @user.email %><br> </div>
+      <div><label><%= t("admin.label.username") %></label><%= @user.username %><br>
+      <label><%= t("admin.label.email") %> </label><%= @user.email %><br> </div>
     </div>
   </div>
   <div class="col-sm-8">
-    <center><h2>Examination Histories</h2></center>
+    <center><h2><%= t("admin.title.examination_history") %></h2></center>
     <ul class="list-group">
       <% @user.examinations.each do |examination| %>
         <li class="list-group-item">
