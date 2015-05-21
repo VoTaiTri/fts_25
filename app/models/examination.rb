@@ -8,6 +8,7 @@ class Examination < ActiveRecord::Base
   belongs_to :subject
   has_many :answer_sheets, dependent: :destroy  
   
+  validates :user, :subject, presence: true
   accepts_nested_attributes_for :answer_sheets, allow_destroy: true
   
   scope :have_status, ->(status) {where status: status}
