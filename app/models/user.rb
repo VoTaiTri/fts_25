@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :validatable
   has_many :examinations, dependent: :destroy
   
-  validates :username, presence: true, length: {maximum: 50}
+  validates :username, presence: true, uniqueness: true, length: {maximum: 50}
+  validates :email, presence: true, length: {maximum:50}
 end

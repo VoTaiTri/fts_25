@@ -2,6 +2,6 @@ class Subject < ActiveRecord::Base
   has_many :examinations, dependent: :destroy
   has_many :questions, dependent: :destroy
   
-  validates_presence_of :name, :duration
-  validates_numericality_of :duration
+  validates :name, presence: true, length: {maximum: 50}
+  validates :duration, presence: true, numericality: {greater_than: 0}  
 end
