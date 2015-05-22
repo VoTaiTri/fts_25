@@ -8,7 +8,12 @@ class ExaminationsController < ApplicationController
   end
   
   def create
-    @examination = current_user.examinations.create examination_params
+    @examination = current_user.examinations.build examination_params
+    if @examination.save
+      flash[:success] = t(:created_success, model: "Examination")
+    else
+      flash[:danger] = t(:created_failed, model: "Examination")
+    end
     redirect_to examinations_path
   end
 

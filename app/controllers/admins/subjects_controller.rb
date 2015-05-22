@@ -18,6 +18,7 @@ class Admins::SubjectsController < ApplicationController
     if @subject.save
       redirect_to admins_subjects_path, success: t(:created_success, model: "subject")
     else
+      flash[:danger] = t(:created_failed, model: "Subject")
       render "new"
     end
   end
@@ -29,6 +30,7 @@ class Admins::SubjectsController < ApplicationController
     if @subject.update_attributes subject_params
       redirect_to admins_subjects_path, success: t(:updated_success, model: "subject")
     else
+      flash[:danger] = t(:updated_failed, model: "Subject")
       render "edit"
     end
   end

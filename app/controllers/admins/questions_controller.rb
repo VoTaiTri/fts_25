@@ -18,6 +18,7 @@ class Admins::QuestionsController < ApplicationController
     if @question.save
       redirect_to admins_questions_path, success: t(:created_success, model: "question")
     else
+      flash[:danger] = t(:created_failed, model: "Question")
       render "new"
     end
   end
@@ -29,6 +30,7 @@ class Admins::QuestionsController < ApplicationController
     if @question.update_attributes question_params
       redirect_to  admins_questions_path, success: t(:updated_success, model: "question")
     else
+      flash[:danger] = t(:updated_failed, model: "Question")
       render "edit"
     end
   end
