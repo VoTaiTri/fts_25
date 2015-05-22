@@ -27,6 +27,7 @@ class Admins::ExaminationsController < ApplicationController
       flash[:success] = t(:updated_success, model: "examination")
       redirect_to admins_examinations_path
     else
+      flash[:danger] = t(:updated_failed, model: "examination")
       render "show"
     end
   end
