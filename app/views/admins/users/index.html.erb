@@ -2,6 +2,6 @@
   <h2><%= t("admin.title.all_user") %></h2>
   <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
   <ul class="list-group">
-    <%= render @users %>
+    <%= render partial: "admins/users/user", collection: @users %>
   </ul>
 </div>
