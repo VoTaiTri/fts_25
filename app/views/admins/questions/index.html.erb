@@ -10,6 +10,6 @@
   </div>
   <%= will_paginate @questions, renderer: BootstrapPagination::Rails %>
   <ul id="questions" class="list-group">
-    <%= render @questions %>
+    <%= render partial: "admins/questions/question", collection: @questions %>
   </ul>
 </div>

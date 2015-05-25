@@ -13,6 +13,6 @@
   </div><hr />
   <%= will_paginate @examinations, renderer: BootstrapPagination::Rails %>
   <ul class="list-group">
-    <%= render @examinations %>
+    <%= render partial: "admins/examinations/examination", collection: @examinations %>
   </ul>
 </div>

@@ -63,6 +63,7 @@ en:
       all_user: "All Users"
       user_profile: "User's Profile"
       examination_history: "Examination Histories"
+      question_detail: "Question's Details"
 
     label:
       username: "Username"
