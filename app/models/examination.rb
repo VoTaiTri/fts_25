@@ -7,6 +7,7 @@ class Examination < ActiveRecord::Base
   belongs_to :user
   belongs_to :subject
   has_many :answer_sheets, dependent: :destroy  
+  has_many :questions, through: :answer_sheets
   
   validates :user, :subject, presence: true
   accepts_nested_attributes_for :answer_sheets, allow_destroy: true
