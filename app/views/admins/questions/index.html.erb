@@ -9,7 +9,7 @@
     </div>
   </div>
   <%= will_paginate @questions, renderer: BootstrapPagination::Rails %>
-  <ul class="list-group">
+  <ul id="questions" class="list-group">
     <%= render @questions %>
   </ul>
 </div>
