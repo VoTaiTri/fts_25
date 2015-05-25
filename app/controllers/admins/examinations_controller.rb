@@ -13,8 +13,8 @@ class Admins::ExaminationsController < ApplicationController
   end
   
   def show
-    @user = User.find params[:user_id]
-    @examination = @user.examinations.find params[:id]
+    user = User.find params[:user_id]
+    @examination = user.examinations.find params[:id]
   end
   
   def edit
