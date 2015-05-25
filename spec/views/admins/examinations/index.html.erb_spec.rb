@@ -1,7 +1,10 @@
 require "rails_helper"
 
-RSpec.describe "admins/examinations/index", type: :view do  
+RSpec.describe "admins/examinations/index", type: :view do
   before :each do
+    3.times do
+      FactoryGirl.create :examination
+    end
     @examinations = Examination.all.paginate page: params[:page],
                                            per_page: Settings.page_size
   end
@@ -22,7 +25,6 @@ RSpec.describe "admins/examinations/index", type: :view do
   it "display the _examination partial for all examination on Admin page" do
     assign :examinations, @examinations
     render
-    expect(view).to render_template partial: "admins/examination",
-                                    count: @examinations.count
+    expect(rendered).to render_template partial: "admins/examinations/_examination"
   end
 end
