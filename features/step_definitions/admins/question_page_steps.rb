@@ -69,14 +69,14 @@ When(/^I change description to "(.*?)"$/) do |description|
 end
 
 When(/^click "(.*?)" button$/) do |button|
-  click_button button
+  click_button button, match: :prefer_exact
 end
 
 Then(/^question should have description "(.*?)"$/) do |description|
   expect(@question.reload.description).to eq(description)
 end
 
-Then(/^subject should stay the same$/) do
+Then(/^question should stay the same$/) do
   expect(Question.where(description: @question.description).count).to eq(1)
 end
 
@@ -109,19 +109,6 @@ Then(/^the page should contain (\d+) options data$/) do |number_of_options|
   expect(page).to have_selector("tbody > tr", count: number_of_options)
 end
 
-When(/^I visit index page$/) do
-  visit admins_questions_path
-end
-
-When(/^click on "(.*?)" link$/) do |delete_link|
-  expect(Question.all.count).to eq(1)
-  
-  click_link delete_link
-  Capybara.current_driver = :webkit
-  page.driver.browser.accept_js_confirms
-  Capybara.use_default_driver
-end
-
-Then(/^one question should be delete from the database$/) do
-  expect(Question.all.count).to eq(0)
+When(/^I click on question "(.*?)" link Question should decrease by 1$/) do |delete_link|
+  expect {click_link delete_link}.to change(Question, :count).by(-1)
 end

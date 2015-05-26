@@ -50,7 +50,7 @@ Feature: Question page
     And I change description to ""
     And click "Update" button
     Then the page should contain element with id "error_explanation"
-    And subject should stay the same
+    And question should stay the same
     
   Scenario: Show all question
     Given I have question as bellow:
@@ -69,6 +69,5 @@ Feature: Question page
     
   Scenario: Delete question
     Given there is a question with description "delete description"
-    When I visit index page
-    And click on "Delete" link
-    Then one question should be delete from the database
+    When I visit question index page
+    Then I click on question "Delete" link Question should decrease by 1

@@ -1,31 +1,11 @@
-Given(/^I have signin as an admin$/) do
-  admin = FactoryGirl.create :user, role: :admin
-  visit new_admin_session_path
-  fill_in "admin[email]", with: admin.email
-  fill_in "admin[password]", with: admin.password
-  click_button "Sign in"
-end
-
 Given(/^I visit new subject page$/) do
   visit new_admins_subject_path
-end
-
-Then(/^I should see a form with title "(.*?)"$/) do |title|
-  expect(page).to have_content title
 end
 
 When(/^I fill the form with "(.*?)" and "(.*?)" and click "(.*?)"$/) do |name, duration, button|
   fill_in "subject[name]", with: name
   fill_in "subject[duration]", with: duration
   click_button button
-end
-
-Then(/^I should see a message "(.*?)"$/) do |message|
-  expect(page).to have_content message
-end
-
-Then(/^the page should contain element with id "(.*?)"$/) do |id|
-  expect(page).to have_selector "div##{id}"
 end
 
 Then(/^one subject with name "(.*?)" added to the database$/) do |name|
@@ -50,10 +30,6 @@ end
 
 When(/^I change duration to "(.*?)"$/) do |duration|
   fill_in "subject[duration]", with: duration
-end
-
-When(/^click "(.*?)" button$/) do |button|
-  click_button button
 end
 
 Then(/^subject should have name "(.*?)"$/) do |name|
@@ -93,16 +69,7 @@ Then(/^I should see page with content name "(.*?)" duration "(.*?)"$/) do |name,
   expect(page).to have_content(duration)
 end
 
-When(/^click on "(.*?)" link$/) do |delete_link|
-  expect(Subject.count).to eq(1)
-  
-  click_link delete_link
-  Capybara.current_driver = :webkit
-  page.driver.browser.accept_js_confirms
-  Capybara.use_default_driver
-end
-
-Then(/^one subject should be delete from the database$/) do
-  expect(Subject.count).to eq(0)
+Then(/^I click on "(.*?)" link Subject should decrease by 1$/) do |delete_link|
+  expect {click_link delete_link}.to change(Subject, :count).by(-1)
 end
 

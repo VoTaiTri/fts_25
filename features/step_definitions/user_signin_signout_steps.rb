@@ -24,10 +24,10 @@ Given(/^I have already signed in with:$/) do |table|
   click_button "Sign in"
 end
 
-When(/I click on "(.*?)" link/) do |link|
+When(/^I click on "(.*?)" link$/) do |link|
   click_link link
 end
 
-Then(/Then I should see message say "(.*?)"/) do |message|
+Then(/^Then I should see message say "(.*?)"$/) do |message|
   expect(page).to have_content(message)
 end

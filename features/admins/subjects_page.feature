@@ -55,5 +55,4 @@ Feature: Subject page
   Scenario: Delete subject
     Given there is a subject in the database with name "java" and duration "20"
     When I visit index page
-    And click on "Delete" link
-    Then one subject should be delete from the database
+    Then I click on "Delete" link Subject should decrease by 1

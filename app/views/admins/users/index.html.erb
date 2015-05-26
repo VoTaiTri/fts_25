@@ -1,7 +1,7 @@
 <div class="col-sm-8 col-sm-offset-2">
   <h2><%= t("admin.title.all_user") %></h2>
   <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
-  <ul class="list-group">
+  <ul id="users" class="list-group">
     <%= render partial: "admins/users/user", collection: @users %>
   </ul>
 </div>
